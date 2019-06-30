@@ -1,4 +1,4 @@
-public class MyTread implements Runnable {
+public class MyThread implements Runnable {
 
     @Override
     public void run() {
