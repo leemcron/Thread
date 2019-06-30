@@ -1,0 +1,26 @@
+public class TextReadWrite {
+    String path;
+
+    public TextReadWrite(String path) {
+        this.path = path;
+    }
+
+    public void readerFile() throws IOException {
+       BufferedReader reader = new BufferedReader(new FileReader(path));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            System.out.println(line);
+        }
+        reader.close();
+        }
+
+
+    public void writerFile(String s) throws IOException {
+        FileWriter writer = new FileWriter(path, true);
+        writer.write(s);
+        writer.close();
+    }
+
+
+
+}
