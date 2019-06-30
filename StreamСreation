@@ -1,0 +1,29 @@
+public class StreamСreation {
+    public static void main(String[] args) throws InterruptedException {
+        long time = System.currentTimeMillis();
+
+        Thread stream1 = new Thread(new MyTread(), "streem1");
+        stream1.run();
+
+
+        Thread stream2 = new Thread(() -> {
+            double s = 0;
+            for (double i = 0; i < 100000000; i++) {
+                s += i;
+
+            }
+            System.out.println("Сумма чисел потока№2 = " + s);
+        });
+
+        stream2.start();
+        stream1.start();
+
+        stream1.setPriority(1);
+        stream2.setPriority(8);
+
+
+        if (stream1.isAlive()) stream1.join();
+        if (stream2.isAlive()) stream2.join();
+        System.out.println("Время выполнения программы: " + (System.currentTimeMillis() - time));
+    }
+}
