@@ -1,0 +1,10 @@
+public class MyTread implements Runnable {
+
+    @Override
+    public void run() {
+        double s = 0;
+        for (double i = 0; i < 100000000; i++) {
+            s += i;
+        }
+        System.out.println("Сумма чисел потока№1 = " + s);
+    }
